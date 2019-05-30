@@ -11,27 +11,28 @@
         android:id="@+id/editText_phone2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/phoneTitle"
-        tools:layout_editor_absoluteY="199dp" />
+        tools:layout_editor_absoluteY="85dp" />
 
     <EditText
         android:id="@+id/editText_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/NameText"
-        tools:layout_editor_absoluteY="123dp" />
+        tools:layout_editor_absoluteY="19dp" />
 
     <TextView
         android:id="@+id/NameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="32dp"
         android:text="Name"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,37 +42,37 @@
         android:id="@+id/editText_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="24dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/addressText"
-        tools:layout_editor_absoluteY="299dp" />
+        tools:layout_editor_absoluteY="136dp" />
 
     <Button
         android:id="@+id/IDButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="96dp"
         android:text="Add Contact"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="67dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="219dp" />
 
     <Button
         android:id="@+id/ViewDataButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="viewData"
         android:text="View Data"
-        tools:layout_editor_absoluteX="249dp"
-        tools:layout_editor_absoluteY="587dp" />
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="219dp" />
 
     <TextView
         android:id="@+id/phoneTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone Num"
+        android:text="Phone"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="212dp" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="85dp" />
 
     <TextView
         android:id="@+id/addressText"
@@ -79,6 +80,15 @@
         android:layout_height="wrap_content"
         android:text="Address"
         android:textSize="24"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="312dp" />
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <Button
+        android:id="@+id/SearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="searchData"
+        android:text="Search"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="219dp" />
 </android.support.constraint.ConstraintLayout>

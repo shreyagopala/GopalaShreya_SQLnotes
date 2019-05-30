@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
             //append res column 0, ... to the buffer - see Stringbuffer and Cursor apis
             buffer.append("ID: " + res.getString(0 ) + "\n");
             buffer.append("Name: " + res.getString(1) + "\n");
+            buffer.append("Number: " + res.getString(3) + "\n");
+            buffer.append("Address: " + res.getString(2) + "\n");
+            buffer.append("\n");
         }
 
         showMessage("Data", buffer.toString());
@@ -66,5 +69,34 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+
+    public void searchData(View view) {
+        Log.d("MyContactApp", "MainActivity: search data");
+        Cursor res = myDb.getAllData();
+
+        if (res.getCount()==0) {
+            showMessage("Error", "No data found in database");
+            return;
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while (res.moveToNext()) {
+            //append res column 0, ... to the buffer = see Stringbuffer and Cursor api's
+            boolean match = true;
+            if (editName.getText().toString().length()!=0 && !editName.getText().toString().equals(res.getString(1))) match=false;
+            if (editAddress.getText().toString().length()!=0 && !editAddress.getText().toString().equals(res.getString(2))) match=false;
+            if (editPhone.getText().toString().length()!=0 && !editPhone.getText().toString().equals(res.getString(3))) match=false;
+
+            if (match){
+                buffer.append("ID: " + res.getString(0) + "\n");
+                buffer.append("Name: " + res.getString(1) + "\n");
+                buffer.append("Number: " + res.getString(3) + "\n");
+                buffer.append("Address: " + res.getString(2) + "\n");
+                buffer.append("\n");
+            }
+        }
+
+        showMessage("Data", buffer.toString());
     }
 }
