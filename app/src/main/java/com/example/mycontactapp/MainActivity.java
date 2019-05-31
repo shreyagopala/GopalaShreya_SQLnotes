@@ -31,15 +31,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addData(View view) {
-        boolean isInserted = myDb.insertData(editName.getText().toString(),editPhone.getText().toString(), editAddress.getText().toString() );
+        Cursor cursor = myDb.getAllData();
+        while (cursor.getCount() > 0 && cursor.moveToNext()) {
+            if (editName.getText().toString().equals(cursor.getString(1))
+                    && editPhone.getText().toString().equals(cursor.getString(2))
+                    && editAddress.getText().toString().equals(cursor.getString(3))) {
+                Toast.makeText(MainActivity.this, "Nuh uh! Contact already in database HEHE", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
 
+        boolean isInserted = myDb.insertData(editName.getText().toString(), editPhone.getText().toString(),
+                editAddress.getText().toString());
+
+        if (isInserted) {
+            Toast.makeText(MainActivity.this, "Success - contact inserted GO YOU", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(MainActivity.this, "FAILED - contact not inserted SUCKS TO SUCK", Toast.LENGTH_LONG).show();
+        }
+    }
+    /*public void addData(View view) {
+        if (searchData(view))
+        boolean isInserted = myDb.insertData(editName.getText().toString(),editPhone.getText().toString(), editAddress.getText().toString() );
         if (isInserted == true) {
             Toast.makeText(MainActivity.this, "Success - contact inserted", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(MainActivity.this, "Failed - contact not inserted", Toast.LENGTH_LONG).show();
 
         }
-    }
+    }*/
 
     public void viewData(View view){
         Cursor res = myDb.getAllData();

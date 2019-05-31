@@ -17,11 +17,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String ADDRESS = "address";
 
     public static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE "+ TABLE_NAME + " (" +
-                        ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                        COLUMN_NAME_CONTACT + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                     PHONE_NUMBER + " INTEGER PRIMARY KEY AUTOINCREMENT," + ADDRESS +
-                    " TEXT)";
+"CREATE TABLE " + TABLE_NAME + " (" +
+            ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            COLUMN_NAME_CONTACT + ", " +
+            PHONE_NUMBER + ", " +
+            ADDRESS + " TEXT)";
     public static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + TABLE_NAME;
 
@@ -73,8 +73,3 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return res;
         }
     }
-
-
-
-
-}
